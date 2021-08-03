@@ -12,7 +12,7 @@ class Shop {
   }
   
   updateQuality() {
-    const updatedItems = []
+    let updatedItems = []
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].name === "Aged Brie") {
         if (this.items[i].quality < 50) {
@@ -23,11 +23,12 @@ class Shop {
           this.items[i].sellIn = this.items[i].sellIn - 1;
           this.items[i].quality = 50;
         }
-        updatedItems.push(this.items[i])
+        updatedItems = [...updatedItems, this.items[i]]
+        // updatedItems.push(this.items[i])
       } else if (this.items[i].name === "Sulfuras") {
         this.items[i].sellIn = this.items[i].sellIn - 1;
         this.items[i].quality = 80;
-        updatedItems.push(this.items[i])
+        updatedItems = [...updatedItems, this.items[i]]
       } else if (this.items[i].name === "Backstage passes") {
         if (this.items[i].sellIn > 10) {
           this.items[i].sellIn = this.items[i].sellIn - 1;
@@ -42,7 +43,7 @@ class Shop {
           this.items[i].sellIn = this.items[i].sellIn - 1;
           this.items[i].quality = 0;
         }
-        updatedItems.push(this.items[i]);
+        updatedItems = [...updatedItems, this.items[i]]
       } else if (this.items[i].name === "Conjured") {
         if (this.items[i].sellIn >= 0){
           this.items[i].quality = this.items[i].quality -2;
@@ -52,7 +53,7 @@ class Shop {
           this.items[i].sellIn = this.items[i].sellIn - 1;
         }
         if (this.items[i].quality < 0) this.items[i].quality = 0;
-        updatedItems.push(this.items[i]);
+        updatedItems = [...updatedItems, this.items[i]]
       } else {
         if ( this.items[i].sellIn >= 0) {
           this.items[i].sellIn = this.items[i].sellIn - 1;
@@ -61,7 +62,7 @@ class Shop {
           this.items[i].sellIn = this.items[i].sellIn - 1;
           this.items[i].quality = this.items[i].quality - 2;
         }
-        updatedItems.push(this.items[i]);
+        updatedItems = [...updatedItems, this.items[i]]
       }
     }
     return updatedItems;
