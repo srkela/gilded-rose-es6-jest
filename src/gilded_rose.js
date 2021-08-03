@@ -68,6 +68,8 @@ class Shop {
   }
 }
 
+// NOTE: Items are to be updated manually  with updated data after running script. In next iteration storage can be added, and items would update automatically after running the script
+
 const commonBrie = new Item("Common Brie", 8, 9)
 const commonAle = new Item("Common Ale", 10, 7)
 const conjured = new Item("Conjured", 14, 8);
